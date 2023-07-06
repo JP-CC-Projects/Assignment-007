@@ -17,6 +17,17 @@ public class CustomArrayListTest {
         assertNull(customList.get(0));
         assertNull(customList.get(1));
         assertNull(customList.get(2));
+        CustomList<Integer> sut = new CustomArrayList<>();
+        for (int i = 0; i < 10; i++){
+            sut.add(i);
+        }
+        sut.remove(9);
+        sut.remove(7);
+        sut.add(7, 1000);
+        sut.add(7, 1001);
+        sut.add(7, 1002);
+        sut.add(2000);
+
     }
 
     @Test

@@ -6,16 +6,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 
     @Override
     public boolean add(T item) {
-        if (this.size == items.length) {
+        if (size == items.length) {
             makeArrayBigger();
         }
 
-        if (this.size < items.length) {
+        if (size <= items.length) {
+
             if (items[size] == null) {
                 items[size] = item;
                 size++;
-                return true;
             }
+            return true;
         }
         return false;
     }
@@ -23,13 +24,13 @@ public class CustomArrayList<T> implements CustomList<T> {
     //New function: adds at index
     @Override
     public boolean add(int index, T item) throws IndexOutOfBoundsException{
-        if (size == this.items.length) {
+        if (items.length == size) {
             makeArrayBigger();
         }
 
-        for (int i = this.size -1; i >= index; i--){
+        for (int i = size -1; i >= index; i--){
             if (index == i) {
-                this.items[index] = item;
+                items[index] = item;
                 return true;
             }
             items[i] = items[i - 1];
@@ -52,6 +53,7 @@ public class CustomArrayList<T> implements CustomList<T> {
         T removedValue = (T)this.items[index];
         if(index == this.size - 1){
             this.items[index] = null;
+            size--;
             return removedValue;
         }
         for(int i = index; i < size - 1; i++){
@@ -63,9 +65,8 @@ public class CustomArrayList<T> implements CustomList<T> {
     // Same as Arrays.copyOf:
     void makeArrayBigger() {
         Object[] items = new Object[this.items.length * 2];
-        for (int i = 0; i < this.items.length - 1; i++) {
+        for (int i = 0; i < this.items.length; i++) {
             items[i] = this.items[i];
-
         }
         this.items = items;
     }
