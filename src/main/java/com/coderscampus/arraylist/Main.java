@@ -17,13 +17,6 @@ public class Main{
         for(int i = 0; i < sut.getSize(); i++){
             System.out.println(sut.get(i));
         }
-        System.out.println();
-        sut.remove(9);
-        sut.remove(7);
-        sut.add(7, 1000);
-        sut.add(2000);
-        for(int i = 0; i < sut.getSize(); i++){
-            System.out.println(sut.get(i));
-        }
+        sut.remove(5);
     }
 }

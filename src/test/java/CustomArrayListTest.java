@@ -97,4 +97,27 @@ public class CustomArrayListTest {
         }
         assertEquals(1000000, customListAddInts.getSize());
     }
+
+    @Test
+    void asdf(){
+        CustomArrayList<Integer> testList = new CustomArrayList<>();
+        for (int i = 0; i < 100; i++){
+            testList.add(i);
+        }
+        testList.remove(50);
+        assertEquals(49, testList.get(49));
+        assertEquals(51, testList.get(50));
+        assertEquals(99, testList.getSize());
+
+        testList.remove(50);
+        assertEquals(49, testList.get(49));
+        assertEquals(52, testList.get(50));
+        assertEquals(98, testList.getSize());
+
+        testList.remove(50);
+        assertEquals(49, testList.get(49));
+        assertEquals(53, testList.get(50));
+        assertEquals(97, testList.getSize());
+
+    }
 }

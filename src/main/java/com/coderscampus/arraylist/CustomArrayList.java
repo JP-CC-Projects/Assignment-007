@@ -51,15 +51,15 @@ public class CustomArrayList<T> implements CustomList<T> {
     @Override
     public T remove(int index) throws IndexOutOfBoundsException{
         T removedValue = (T)this.items[index];
-        if(index == this.size - 1){
-            this.items[index] = null;
-            size--;
-            return removedValue;
+        for(int i = index; i < size; i++){
+            if(i == size - 1){
+                this.items[i] = null;
+                size--;
+                return removedValue;
+            }
+            this.items[i] = this.items[i + 1];
         }
-        for(int i = index; i < size - 1; i++){
-            this.items[index] = this.items[index + 1];
-        }
-        return removedValue;
+        return null;
     }
 
     // Same as Arrays.copyOf:
