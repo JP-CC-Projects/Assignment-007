@@ -10,7 +10,7 @@ public class CustomArrayList<T> implements CustomList<T> {
             makeArrayBigger();
         }
 
-        if (size <= items.length) {
+        if (size < items.length) {
 
             if (items[size] == null) {
                 items[size] = item;
@@ -28,9 +28,10 @@ public class CustomArrayList<T> implements CustomList<T> {
             makeArrayBigger();
         }
 
-        for (int i = size -1; i >= index; i--){
+        for (int i = size; i >= index; i--){
             if (index == i) {
                 items[index] = item;
+                size++;
                 return true;
             }
             items[i] = items[i - 1];
